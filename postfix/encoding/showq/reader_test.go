@@ -18,7 +18,7 @@ func ExampleReader() {
 		panic(err)
 	}
 	fmt.Println(message)
-	// Output: {deferred 09229268B721 0 0 false foo@example.com [{bar@example.jp <nil>}]}
+	// Output: &{deferred 09229268B721 0 0 false foo@example.com [{bar@example.jp <nil>}]}
 }
 
 func TestReader_Read(t *testing.T) {

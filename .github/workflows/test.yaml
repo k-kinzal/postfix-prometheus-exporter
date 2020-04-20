@@ -1,0 +1,33 @@
+name: test
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.x
+      - name: setup node
+        uses: actions/setup-node@master
+        with:
+          node-version: '12'
+      - name: checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: test
+        run: go test -coverprofile=cover.out ./...
+      - name: test & send coverage
+        uses: paambaati/codeclimate-action@v2.5.6
+        env:
+          CC_TEST_REPORTER_ID: 4c1d3274e9382f3da193e8b14a67d47af7156ac891b8441c77f9b40bdb974e84
+        with:
+          coverageCommand: go test -cover ./...
+          coverageLocations: "${{github.workspace}}/cover.out:cover"
+          debug: true
