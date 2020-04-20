@@ -1,5 +1,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/09d87b74d2f9cd86fa5e/maintainability)](https://codeclimate.com/github/k-kinzal/postfix-prometheus-exporter/maintainability)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fk-kinzal%2Fpostfix-prometheus-exporter.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fk-kinzal%2Fpostfix-prometheus-exporter?ref=badge_shield)
 
 # Postfix Prometheus Exporter
 
@@ -59,6 +58,3 @@ Flags:
 - `postfix_queue_size_bytes` -- Total message size in the queue
 - `postfix_scope_collector_duration_seconds` -- Duration of a collector scrap
 - `postfix_scope_collector_success` -- Whether a collector succeeded
-
-## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fk-kinzal%2Fpostfix-prometheus-exporter.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fk-kinzal%2Fpostfix-prometheus-exporter?ref=badge_large)
