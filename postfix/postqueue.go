@@ -8,13 +8,14 @@ import (
 	"sync"
 )
 
+// PostQueueOpt is postfix options.
 // See: http://www.postfix.org/postqueue.1.html
 type PostQueueOpt struct {
 	// configDir string // FIXME: want to parse main.cf and read the queue_directory.
 	ShowqPath string
 }
 
-// Postfix user interface for queue management.
+// PostQueue is postfix user interface for queue management.
 // See: http://www.postfix.org/postqueue.1.html
 type PostQueue struct {
 	opt *PostQueueOpt
@@ -29,7 +30,7 @@ func (q *PostQueue) connectShowq() (net.Conn, error) {
 	return net.Dial("unix", path)
 }
 
-// Each will produce a traditional sendmail-style queue list of messages per unit.
+// EachProduce is each will produce a traditional sendmail-style queue list of messages per unit.
 func (q *PostQueue) EachProduce(fn func(message *showq.Message)) error {
 	conn, err := q.connectShowq()
 	if err != nil {
@@ -58,9 +59,8 @@ func (q *PostQueue) EachProduce(fn func(message *showq.Message)) error {
 
 	if er != io.EOF {
 		return er
-	} else {
-		return nil
 	}
+	return nil
 }
 
 // Produce a traditional sendmail-style queue listing.

@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-// Time defines a timestamp encoded as epoch seconds in JSON.
+// Timestamp defines a timestamp encoded as epoch seconds in JSON.
 type Timestamp time.Time
 
 // MarshalJSON is used to convert the timestamp to JSON.
@@ -41,11 +41,11 @@ type Recipient struct {
 	DelayReason *string `json:"delay_reason"`
 }
 
-// Messages in the sendmail-style queue.
+// Message in the sendmail-style queue.
 // See: http://www.postfix.org/postqueue.1.html
 type Message struct {
 	QueueName    string      `json:"queue_name"`
-	QueueId      string      `json:"queue_id"`
+	QueueID      string      `json:"queue_id"`
 	ArrivalTime  Timestamp   `json:"arrival_time"`
 	MessageSize  uint64      `json:"message_size"`
 	ForcedExpire bool        `json:"forced_expire"`
@@ -57,7 +57,7 @@ type Message struct {
 func (m *Message) Bytes() []byte {
 	var arr []string
 	arr = append(arr, fmt.Sprintf("queue_name\000%s", m.QueueName))
-	arr = append(arr, fmt.Sprintf("queue_id\000%s", m.QueueId))
+	arr = append(arr, fmt.Sprintf("queue_id\000%s", m.QueueID))
 	arr = append(arr, fmt.Sprintf("time\000%d", time.Time(m.ArrivalTime).Unix()))
 	arr = append(arr, fmt.Sprintf("size\000%d", m.MessageSize))
 	arr = append(arr, fmt.Sprintf("forced_expire\000%t", m.ForcedExpire))
@@ -71,7 +71,7 @@ func (m *Message) Bytes() []byte {
 	return []byte(strings.Join(arr, "\000") + "\000\000")
 }
 
-// A parsing error occurs when an unexpected string of characters is encountered.
+// ParseError occurs when an unexpected string of characters is encountered.
 type ParseError struct {
 	message string
 	line    string
@@ -155,7 +155,7 @@ func (r *Reader) Read() (*Message, error) {
 		case "queue_name":
 			message.QueueName = value
 		case "queue_id":
-			message.QueueId = value
+			message.QueueID = value
 		case "time":
 			ts, err := strconv.ParseInt(value, 10, 64)
 			if err != nil {
