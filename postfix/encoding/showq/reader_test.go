@@ -18,7 +18,7 @@ func ExampleReader() {
 		panic(err)
 	}
 	fmt.Println(message)
-	// Output: {deferred 09229268B721 0 0 false foo@example.com [{bar@example.jp <nil>}]}
+	// Output: &{deferred 09229268B721 0 0 false foo@example.com [{bar@example.jp <nil>}]}
 }
 
 func TestReader_Read(t *testing.T) {
@@ -31,8 +31,8 @@ func TestReader_Read(t *testing.T) {
 	if message.QueueName != expected.QueueName {
 		t.Errorf("expected `%v`, but actual is `%v`", expected.QueueName, message.QueueName)
 	}
-	if message.QueueId != expected.QueueId {
-		t.Errorf("expected `%v`, but actual is `%v`", expected.QueueId, message.QueueId)
+	if message.QueueID != expected.QueueID {
+		t.Errorf("expected `%v`, but actual is `%v`", expected.QueueID, message.QueueID)
 	}
 	if time.Time(message.ArrivalTime).Unix() != time.Time(message.ArrivalTime).Unix() {
 		t.Errorf("expected `%v`, but actual is `%v`", time.Time(message.ArrivalTime).Unix(), time.Time(message.ArrivalTime).Unix())
@@ -67,8 +67,8 @@ func TestReader_ReadMultipleRecipients(t *testing.T) {
 	if message.QueueName != expected.QueueName {
 		t.Errorf("expected `%v`, but actual is `%v`", expected.QueueName, message.QueueName)
 	}
-	if message.QueueId != expected.QueueId {
-		t.Errorf("expected `%v`, but actual is `%v`", expected.QueueId, message.QueueId)
+	if message.QueueID != expected.QueueID {
+		t.Errorf("expected `%v`, but actual is `%v`", expected.QueueID, message.QueueID)
 	}
 	if time.Time(message.ArrivalTime).Unix() != time.Time(message.ArrivalTime).Unix() {
 		t.Errorf("expected `%v`, but actual is `%v`", time.Time(message.ArrivalTime).Unix(), time.Time(message.ArrivalTime).Unix())
@@ -108,8 +108,8 @@ func TestReader_ReadMultipleMessage(t *testing.T) {
 		if message.QueueName != expected.QueueName {
 			t.Errorf("expected `%v`, but actual is `%v`", expected.QueueName, message.QueueName)
 		}
-		if message.QueueId != expected.QueueId {
-			t.Errorf("expected `%v`, but actual is `%v`", expected.QueueId, message.QueueId)
+		if message.QueueID != expected.QueueID {
+			t.Errorf("expected `%v`, but actual is `%v`", expected.QueueID, message.QueueID)
 		}
 		if time.Time(message.ArrivalTime).Unix() != time.Time(message.ArrivalTime).Unix() {
 			t.Errorf("expected `%v`, but actual is `%v`", time.Time(message.ArrivalTime).Unix(), time.Time(message.ArrivalTime).Unix())

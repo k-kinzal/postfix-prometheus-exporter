@@ -14,7 +14,7 @@ func ShowqMessageGen(num int) ShowqMessageGenFunc {
 			messages[i] =
 				showq.Message{
 					QueueName:    "deferred",
-					QueueId:      "09229268B721",
+					QueueID:      "09229268B721",
 					ArrivalTime:  showq.Timestamp(time.Unix(0, 0)),
 					MessageSize:  0,
 					ForcedExpire: false,

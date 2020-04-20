@@ -40,8 +40,8 @@ func TestPostQueue_Produce(t *testing.T) {
 		if message.QueueName != expected[i].QueueName {
 			t.Errorf("expected `%v`, but actual is `%v`", expected[i].QueueName, message.QueueName)
 		}
-		if message.QueueId != expected[i].QueueId {
-			t.Errorf("expected `%v`, but actual is `%v`", expected[i].QueueId, message.QueueId)
+		if message.QueueID != expected[i].QueueID {
+			t.Errorf("expected `%v`, but actual is `%v`", expected[i].QueueID, message.QueueID)
 		}
 		if time.Time(message.ArrivalTime).Unix() != time.Time(message.ArrivalTime).Unix() {
 			t.Errorf("expected `%v`, but actual is `%v`", time.Time(message.ArrivalTime).Unix(), time.Time(message.ArrivalTime).Unix())

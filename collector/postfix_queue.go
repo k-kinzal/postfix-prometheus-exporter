@@ -41,7 +41,7 @@ func (l *locker) Unlock(key string) error {
 	return nil
 }
 
-// Scheduler to collect statistics for Postfix queue.
+// PostfixQueueCollectScheduler to collect statistics for Postfix queue.
 type PostfixQueueCollectScheduler struct {
 	collector *PostfixQueueCollector
 }
@@ -153,7 +153,7 @@ func NewPostfixQueueCollectScheduler(q *postfix.PostQueue, logger log.Logger) *P
 	}
 }
 
-// Collector to collect statistics of postfix queue in Prometheus format
+// PostfixQueueCollector to collect statistics of postfix queue in Prometheus format
 type PostfixQueueCollector struct {
 	postqueue *postfix.PostQueue
 	logger    log.Logger

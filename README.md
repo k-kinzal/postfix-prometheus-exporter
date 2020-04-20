@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/09d87b74d2f9cd86fa5e/maintainability)](https://codeclimate.com/github/k-kinzal/postfix-prometheus-exporter/maintainability)
+
 # Postfix Prometheus Exporter
 
 **NOTE: You should use [kumina/postfix_exporter](https://github.com/kumina/postfix_exporter), which is the de facto standard. This repository exists for study by [@k-kinzal](https://github.com/k-kinzal).**

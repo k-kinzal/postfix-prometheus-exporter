@@ -1,0 +1,6 @@
+plugins:
+  govet:
+    enabled: true
+    checks:
+      GoVet/BugRisk:
+        enabled: false
