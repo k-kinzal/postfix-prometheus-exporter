@@ -1,0 +1,20 @@
+name: bench
+
+on: ['pull_request']
+
+jobs:
+  cov:
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup go
+        uses: actions/setup-go@v1
+        with:
+          go-version: 1.x
+      - name: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: install cob
+        run: curl -sfL https://raw.githubusercontent.com/knqyf263/cob/master/install.sh | sudo sh -s -- -b /usr/local/bin
+      - name: benchmark
+        run: git fetch origin master && cob --base origin/master ./...
