@@ -21,13 +21,14 @@ jobs:
         uses: actions/checkout@v1
         with:
           fetch-depth: 1
-      - name: test
-        run: go test -coverprofile=cover.out ./...
+      - name: build
+        run: make build
       - name: test & send coverage
         uses: paambaati/codeclimate-action@v2.5.6
         env:
           CC_TEST_REPORTER_ID: 4c1d3274e9382f3da193e8b14a67d47af7156ac891b8441c77f9b40bdb974e84
         with:
-          coverageCommand: go test -cover ./...
-          coverageLocations: "${{github.workspace}}/cover.out:cover"
+          coverageCommand: go test -coverprofile=c.out ./...
+          coverageLocations: "${{github.workspace}}/c.out:gocov"
+          prefix: github.com/k-kinzal/postfix-prometheus-exporter/
           debug: true
