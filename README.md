@@ -1,4 +1,6 @@
+![GitHub Action](https://github.com/k-kinzal/postfix-prometheus-exporter/workflows/ci/badge.svg)
 [![Maintainability](https://api.codeclimate.com/v1/badges/09d87b74d2f9cd86fa5e/maintainability)](https://codeclimate.com/github/k-kinzal/postfix-prometheus-exporter/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/09d87b74d2f9cd86fa5e/test_coverage)](https://codeclimate.com/github/k-kinzal/postfix-prometheus-exporter/test_coverage)
 
 # Postfix Prometheus Exporter
 
